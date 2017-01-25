@@ -3,7 +3,7 @@
  * @author Hannes Fuchs
  * @date 2017-01-25
  * @copyright MIT
- * @brief Header file for iAQ-Core C/P Sensor library
+ * @brief Main Class file for iAQ-Core C/P Sensor library
  *
  * This is a simple libray for the indoor air quality sensors iAQ-core C and
  * iAQ-core P from AMS. Mor information about these sensors could be found
@@ -117,7 +117,7 @@ uint16_t IAQCore::getTVOCPredictionPPB(void) {
 /**
  * @brief Reads the sensor, save the values in array and returns status
  *
- * On fast readings (specaly the P version) the last status will be returned
+ * On fast readings (especially the P version) the last status will be returned
  * and the _data array will NOT be updated. Some custom status where added to
  * catch some more errors.
  *
