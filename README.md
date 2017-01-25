@@ -7,7 +7,7 @@ It was tested on the TI CC3200 LaunchPad with the Arduino compatible [Energia v1
 
 ## TI CC3200 LaunchPad Notes
 
-The TI CC3200 LaunchPad I2C Bus runs in FastMode (400 kHz) but sadly the iAQ-core sensors can only 100 kHz, so some modificatons are necessary:  Modify ~/.energia15/packages/energia/hardware/cc3200/1.0.2/libraries/Wire/Wire.cpp
+The TI CC3200 LaunchPad I2C Bus runs in FastMode (400 kHz) but sadly the iAQ-core sensors can only handle 100 kHz, so some modificatons are necessary:  Modify ~/.energia15/packages/energia/hardware/cc3200/1.0.2/libraries/Wire/Wire.cpp
 
 ```diff
 --- a/hardware/cc3200/libraries/Wire/Wire.cpp
