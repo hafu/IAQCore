@@ -101,7 +101,6 @@ class IAQCore {
         uint8_t _type;
         uint32_t _lastreadtime;
         uint32_t _measurementinterval;
-        bool _lastreadresult;
 };
 
 #endif
