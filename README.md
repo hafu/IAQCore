@@ -35,6 +35,6 @@ The TI CC3200 LaunchPad I2C Bus runs in FastMode (400 kHz) but sadly the iAQ-cor
 ```
 
 ### References:
- * energia/Energia issue: CC3200: Issues with I²C energia/Energia#444
- * energia/Energia issue: CC3200 i2c at 100KHz doesn't work energia/Energia#941
- * energia/cc3200-core issue: CC3200 I²C at 100KHz doesn't work energia/cc3200-core#7
+ * energia/Energia issue: CC3200: Issues with I²C [energia/Energia#444](https://github.com/energia/Energia/issues/444)
+ * energia/Energia issue: CC3200 i2c at 100KHz doesn't work [energia/Energia#941](https://github.com/energia/Energia/issues/941)
+ * energia/cc3200-core issue: CC3200 I²C at 100KHz doesn't work [energia/cc3200-core#7](https://github.com/energia/cc3200-core/issues/7)
