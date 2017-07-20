@@ -1,4 +1,4 @@
-#include <IAQCore.h>
+#include "IAQCore.h"
 
 // comment out the specific sensor type
 #define SENSOR_TYPE IAQCORE_TYPE_C

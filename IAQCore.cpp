@@ -1,7 +1,7 @@
 /**
  * @file IAQCore.cpp
  * @author Hannes Fuchs
- * @date 2017-01-25
+ * @date 2017-07-20
  * @copyright MIT
  * @brief Main Class file for iAQ-Core C/P Sensor library
  *

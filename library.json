@@ -1,0 +1,25 @@
+{
+    "name": "iAQ-core",
+    "keywords": "ams, sensor, co2, voc, i2c, iaqcore, iaq-core",
+    "description": "Arduino Library for ams iAQ-core C and P indoor air quality sensor",
+    "repository":
+    {
+        "type": "git",
+        "url": "https://github.com/hafu/IAQCore.git"
+    },
+    "authors":
+    [
+        {
+            "name": "Hannes Fuchs",
+            "maintainer": true
+        }
+    ],
+    "examples":
+    [
+        "examples/*/*.ino"
+    ],
+    "version": "1.0.0",
+    "license": "MIT",
+    "frameworks": "arduino",
+    "platforms": "*"
+}
