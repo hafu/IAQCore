@@ -14,7 +14,7 @@
  * @see http://ams.com/eng/Products/Environmental-Sensors/Air-Quality-Sensors/iAQ-core-P
  */
 
-#include <IAQCore.h>
+#include "IAQCore.h"
 
 
 /**
@@ -128,7 +128,7 @@ uint8_t IAQCore::readBytesFromSensor(uint8_t bytes) {
     // return quickly if we read to fast
     uint32_t currenttime = millis();
     if ((currenttime - _lastreadtime) < _measurementinterval) {
-        DEBUG_PRINTLN(F("Measurement interval to short, return last status"));
+        IAQCORE_DEBUG_PRINTLN(F("Measurement interval to short, return last status"));
         return getStatus();
     }
 
@@ -139,6 +139,11 @@ uint8_t IAQCore::readBytesFromSensor(uint8_t bytes) {
     memset(_data, 0x00, sizeof(_data));
     // to be safe, this status should be overwritten
     _data[IAQCORE_STATUS_OFFSET] = IAQCORE_STATUS_UPDATING;
+    IAQCORE_DEBUG_PRINT(F("Buffer: "));
+    for (uint8_t i=0; i<bytes; i++) {
+        IAQCORE_DEBUG_PRINT(_data[i], HEX); IAQCORE_DEBUG_PRINT(F(" "));
+    }
+    IAQCORE_DEBUG_PRINTLN(F(""));
 
     // do we need this? see IAQCore.h on line 46
     /*
@@ -147,20 +152,20 @@ uint8_t IAQCore::readBytesFromSensor(uint8_t bytes) {
     Wire.endTransmission();
     */
 
-    DEBUG_PRINTLN(F("Request data from sensor"));
+    IAQCORE_DEBUG_PRINTLN(F("Request data from sensor"));
     Wire.requestFrom((uint8_t)IAQCORE_DEF_I2C_ADDR, (uint8_t)bytes, (uint8_t)true);
     if (Wire.available() != bytes) {
-        DEBUG_PRINTLN(F("Request failed"));
+        IAQCORE_DEBUG_PRINTLN(F("Request failed"));
         _data[IAQCORE_STATUS_OFFSET] = IAQCORE_STATUS_I2C_REQ_FAILED;
         return getStatus();
     }
     // read into buffer
-    DEBUG_PRINT(F("Received: "));
+    IAQCORE_DEBUG_PRINT(F("Received: "));
     for (uint8_t i=0; i<bytes; i++) {
         _data[i] = Wire.read();
-        DEBUG_PRINT(_data[i], HEX); DEBUG_PRINT(F(" "));
+        IAQCORE_DEBUG_PRINT(_data[i], HEX); IAQCORE_DEBUG_PRINT(F(" "));
     }
-    DEBUG_PRINTLN(F(""));
+    IAQCORE_DEBUG_PRINTLN(F(""));
 
     return getStatus();
 }
