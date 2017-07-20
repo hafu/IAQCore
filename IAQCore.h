@@ -49,7 +49,7 @@
  *  bit. The communication with the iAQ-Core starts with 0xB5 for reading 
  *  data."
  */
-//#define IAQCORE_START_READING               (0xB5)
+#define IAQCORE_START_READING               (0xB5)
 
 // atm there are two types: continuous (C) and pulsed (P)
 #define IAQCORE_TYPE_C                      (0x00)
@@ -88,6 +88,9 @@
 class IAQCore {
     public:
         IAQCore();
+#ifdef ARDUINO_ARCH_ESP8266
+        IAQCore(int sda, int scl);
+#endif
         void begin(uint8_t type=IAQCORE_TYPE_C);
         uint8_t update(void);
         uint8_t updateAll(void);
@@ -101,6 +104,10 @@ class IAQCore {
         uint8_t _type;
         uint32_t _lastreadtime;
         uint32_t _measurementinterval;
+#ifdef ARDUINO_ARCH_ESP8266
+        int _sda;
+        int _scl;
+#endif
 };
 
 #endif

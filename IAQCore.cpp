@@ -23,12 +23,32 @@
 IAQCore::IAQCore() {
 }
 
+#ifdef ARDUINO_ARCH_ESP8266
+/**
+ * @brief The main Class for the iAQ-core sensor library
+ * @param sda and scl I/O Port  
+ */
+IAQCore::IAQCore(int sda, int scl) {
+    _sda = sda;
+    _scl = scl;
+}
+#endif
+
 /**
  * @brief Initalizates the I2C Bus and sets the sensor type
  * @param type The sensor type C or P, see IAQCore.h
  */
 void IAQCore::begin(uint8_t type) {
+#ifdef ARDUINO_ARCH_ESP8266
+    if (_sda && _scl) {
+        Wire.begin(_sda, _scl);
+    } else {
+        Wire.begin();
+    }
+#else
     Wire.begin();
+#endif
+
     _type = type;
 
     // atm there are only two types
@@ -146,11 +166,9 @@ uint8_t IAQCore::readBytesFromSensor(uint8_t bytes) {
     IAQCORE_DEBUG_PRINTLN(F(""));
 
     // do we need this? see IAQCore.h on line 46
-    /*
     Wire.beginTransmission(IAQCORE_DEF_I2C_ADDR);
     Wire.write(IAQCORE_START_READING);
     Wire.endTransmission();
-    */
 
     IAQCORE_DEBUG_PRINTLN(F("Request data from sensor"));
     Wire.requestFrom((uint8_t)IAQCORE_DEF_I2C_ADDR, (uint8_t)bytes, (uint8_t)true);
