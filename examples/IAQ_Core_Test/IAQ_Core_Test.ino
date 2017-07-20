@@ -80,9 +80,9 @@ void loop() {
     }
 
     if (SENSOR_TYPE == IAQCORE_TYPE_C) {
-        sleep(IAQCORE_MEASUREMENT_INTERVAL_TYPE_C);
+        delay(IAQCORE_MEASUREMENT_INTERVAL_TYPE_C);
     } else {
-        sleep(IAQCORE_MEASUREMENT_INTERVAL_TYPE_P);
+        delay(IAQCORE_MEASUREMENT_INTERVAL_TYPE_P);
     }
 
 
