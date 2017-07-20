@@ -30,15 +30,15 @@
 //#define IAQCORE_DEBUG
 
 // output for debugging output
-#define DEBUG_PRINTER Serial
+#define IAQCORE_DEBUG_PRINTER Serial
 
 // debug macros
 #ifdef IAQCORE_DEBUG
-    #define DEBUG_PRINT(...) { DEBUG_PRINTER.print(__VA_ARGS__); }
-    #define DEBUG_PRINTLN(...) { DEBUG_PRINTER.println(__VA_ARGS__); }
+    #define IAQCORE_DEBUG_PRINT(...) { IAQCORE_DEBUG_PRINTER.print(__VA_ARGS__); }
+    #define IAQCORE_DEBUG_PRINTLN(...) { IAQCORE_DEBUG_PRINTER.println(__VA_ARGS__); }
 #else
-    #define DEBUG_PRINT(...) {}
-    #define DEBUG_PRINTLN(...) {}
+    #define IAQCORE_DEBUG_PRINT(...) {}
+    #define IAQCORE_DEBUG_PRINTLN(...) {}
 #endif
 
 
