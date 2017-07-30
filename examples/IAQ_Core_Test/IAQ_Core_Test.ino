@@ -9,8 +9,8 @@
 #define SENSOR_UPDATE_ALL
 /**
  * Note:
- * Most users just want the status and the CO2 prediciton, if you want more 
- * (sensor restance and TVOC prediction) use the updateAll() function
+ * Most users just want the status and the CO2 prediction, if you want more 
+ * (sensor resistance and TVOC prediction) use the updateAll() function
  */
 
 IAQCore iaqcore;

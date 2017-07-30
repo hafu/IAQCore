@@ -6,7 +6,7 @@
  * @brief Main Class file for iAQ-Core C/P Sensor library
  *
  * This is a simple libray for the indoor air quality sensors iAQ-core C and
- * iAQ-core P from AMS. Mor information about these sensors could be found
+ * iAQ-core P from AMS. More information about these sensors could be found
  * under http://ams.com/eng/Products/Environmental-Sensors/Air-Quality-Sensors
  *
  * @see http://ams.com/eng/Products/Environmental-Sensors/Air-Quality-Sensors
