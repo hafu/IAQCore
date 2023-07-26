@@ -23,10 +23,10 @@
 IAQCore::IAQCore() {
 }
 
-#ifdef ARDUINO_ARCH_ESP8266
+#if defined(ARDUINO_ARCH_ESP8266) || defined(ARDUINO_ARCH_ESP32)
 /**
  * @brief The main Class for the iAQ-core sensor library
- * @param sda and scl I/O Port  
+ * @param sda and scl I/O Port
  */
 IAQCore::IAQCore(int sda, int scl) {
     _sda = sda;
@@ -39,7 +39,7 @@ IAQCore::IAQCore(int sda, int scl) {
  * @param type The sensor type C or P, see IAQCore.h
  */
 void IAQCore::begin(uint8_t type) {
-#ifdef ARDUINO_ARCH_ESP8266
+#if defined(ARDUINO_ARCH_ESP8266) || defined(ARDUINO_ARCH_ESP32)
     if (_sda && _scl) {
         Wire.begin(_sda, _scl);
     } else {
@@ -77,8 +77,8 @@ uint8_t IAQCore::update(void) {
 
 /**
  * @brief Wrapper for private function readBytesFromSensor()
- * 
- * Updates all possible sensor values; including CO2 prediction, status, 
+ *
+ * Updates all possible sensor values; including CO2 prediction, status,
  * sensor resistance and TVOC prediction values.
  *
  * @return Returns the status of an update, see IAQCore.h for values
