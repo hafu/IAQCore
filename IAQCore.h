@@ -45,8 +45,8 @@
 #define IAQCORE_DEF_I2C_ADDR                (0x5A)
 /**
  * Do we need this? From Datasheet:
- * "The addressing byte includes the read/write bit at the lowest significant 
- *  bit. The communication with the iAQ-Core starts with 0xB5 for reading 
+ * "The addressing byte includes the read/write bit at the lowest significant
+ *  bit. The communication with the iAQ-Core starts with 0xB5 for reading
  *  data."
  */
 #define IAQCORE_START_READING               (0xB5)
@@ -78,7 +78,7 @@
 #define IAQCORE_STATUS_OFFSET               (0x02)
 // Note: Byte 0x03 is always 0x00
 #define IAQCORE_RESISTANCE_NULL_BYTE        (0x03)
-#define IAQCORE_RESISTANCE_MSB_OFFSET       (0x04)  
+#define IAQCORE_RESISTANCE_MSB_OFFSET       (0x04)
 #define IAQCORE_RESISTANCE_MID_OFFSET       (0x05)
 #define IAQCORE_RESISTANCE_LSB_OFFSET       (0x06)
 #define IAQCORE_TVOC_PREDICTION_MSB_OFFSET  (0x07)
@@ -88,7 +88,7 @@
 class IAQCore {
     public:
         IAQCore();
-#ifdef ARDUINO_ARCH_ESP8266
+#if defined(ARDUINO_ARCH_ESP8266) || defined(ARDUINO_ARCH_ESP32)
         IAQCore(int sda, int scl);
 #endif
         void begin(uint8_t type=IAQCORE_TYPE_C);
@@ -104,7 +104,7 @@ class IAQCore {
         uint8_t _type;
         uint32_t _lastreadtime;
         uint32_t _measurementinterval;
-#ifdef ARDUINO_ARCH_ESP8266
+#if defined(ARDUINO_ARCH_ESP8266) || defined(ARDUINO_ARCH_ESP32)
         int _sda;
         int _scl;
 #endif
